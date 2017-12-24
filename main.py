@@ -43,6 +43,7 @@ class TwitterWordCloudBot:
         # width and height of the generated image
         self.WIDTH = settings.read_width()
         self.HEIGHT = settings.read_height()
+        
 
     def make_wordcloud(self, twitter_user):
         """ Build the word cloud png image of a twitter user
@@ -101,11 +102,13 @@ class TwitterWordCloudBot:
             pickle.dump(mentions, f)
 
     def load_mentions(self):
-        with open('./mentions', 'rb') as f:
-            try:
+        try: 
+            with open('./mentions', 'rb') as f:
                 mentions = pickle.load(f)
-            except:
-                mentions = []
+                
+        except:
+            mentions = []
+
         return mentions
 
     def get_new_mentions(self, mentions, last_mention_id=1):
