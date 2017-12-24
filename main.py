@@ -105,10 +105,8 @@ class TwitterWordCloudBot:
         try: 
             with open('./mentions', 'rb') as f:
                 mentions = pickle.load(f)
-                
         except:
             mentions = []
-
         return mentions
 
     def get_new_mentions(self, mentions, last_mention_id=1):
