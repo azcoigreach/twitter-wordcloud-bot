@@ -21,3 +21,21 @@ Requirements
 - [word_cloud](https://github.com/amueller/word_cloud)
 - [imgurpython](https://github.com/Imgur/imgurpython)
 
+Docker Build
+------------
+
+* BUILD
+```
+$  docker build -t twitter-wordcloud-bot https://github.com/azcoigreach/twitter-wordcloud-bot.git
+```
+
+* RUN
+```
+$  docker run -tdi --restart unless-stopped -v <app_share_dir>:/usr/src/app/ --name twitter-wordclud-bot twitter-wordcloud-bot
+```
+
+* CONFIG
+- Modify the settings.ini file in the app share.
+
+* NOTES
+- Deployment on a Windows machine may require additional permissions.  Alternatively, share only /usr/src/app/output and modify the setting.ini through docker attach twitter-wordcloud-bot.
