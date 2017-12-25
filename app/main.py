@@ -43,6 +43,9 @@ class TwitterWordCloudBot:
         # width and height of the generated image
         self.WIDTH = settings.read_width()
         self.HEIGHT = settings.read_height()
+
+        if os.path.exists(self.OUTPUT_DIR) is False:
+            os.mkdir(self.OUTPUT_DIR)
         
 
     def make_wordcloud(self, twitter_user):
